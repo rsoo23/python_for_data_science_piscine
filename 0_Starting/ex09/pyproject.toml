@@ -1,0 +1,17 @@
+
+[project]
+name = "ft_package"
+version = "0.0.1"
+description = "A small example package"
+authors = [
+  {name="Soo Rong Jie", email="rongjie.soo@gmail.com"},
+]
+
+requires-python = ">=3.7"
+classifiers = []
+
+[project.urls]
+"Homepage" = "https://github.com/rsoo23/ft_package"
+
+[project.scripts]
+spam-cli = "spam:main_cli"

@@ -1,19 +1,8 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Hello.py                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: rsoo <rsoo@student.42.fr>                  +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/09/18 09:23:19 by rsoo              #+#    #+#              #
-#    Updated: 2023/09/18 09:23:22 by rsoo             ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
 
 ft_list = ["Hello", "tata!"]
 ft_tuple = ("Hello", "toto!")
 ft_set = {"Hello", "tutu!"}
-ft_dict = {"Hello" : "titi!"}
+ft_dict = {"Hello": "titi!"}
 
 # List
 ft_list[1] = "World"
@@ -50,7 +39,8 @@ print(ft_dict)
 
 # Dictionary
 # - collection of key value pairs, where each key is unique
-# - you can access values by their keys, making it efficient for looking up data by a specific identifier
+# - you can access values by their keys, making it efficient
+#   for looking up data by a specific identifier
 
 # *Ordered - same order as the data is initialised
-# *Unordered - order is always different and is not meaningful 
+# *Unordered - order is always different and is not meaningful

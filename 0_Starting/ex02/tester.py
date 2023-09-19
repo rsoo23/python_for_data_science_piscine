@@ -1,21 +1,10 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    tester.py                                          :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: rsoo <rsoo@student.42.fr>                  +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/09/18 10:11:21 by rsoo              #+#    #+#              #
-#    Updated: 2023/09/18 10:12:21 by rsoo             ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
 
 from find_ft_type import all_thing_is_obj
 
 ft_list = ["Hello", "tata!"]
 ft_tuple = ("Hello", "toto!")
 ft_set = {"Hello", "tutu!"}
-ft_dict = {"Hello" : "titi!"}
+ft_dict = {"Hello": "titi!"}
 
 all_thing_is_obj(ft_list)
 all_thing_is_obj(ft_tuple)
@@ -26,10 +15,10 @@ all_thing_is_obj("Brian")
 print(all_thing_is_obj(10))
 
 # Expected Output
-# List : <class 'list'>$
-# Tuple : <class 'tuple'>$
-# Set : <class 'set'>$
-# Dict : <class 'dict'>$
-# Brian is in the kitchen : <class 'str'>$
+# List: <class 'list'>$
+# Tuple: <class 'tuple'>$
+# Set: <class 'set'>$
+# Dict: <class 'dict'>$
+# Brian is in the kitchen: <class 'str'>$
 # Type not found$
 # 42$
