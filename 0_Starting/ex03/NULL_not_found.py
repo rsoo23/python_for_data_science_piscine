@@ -4,13 +4,13 @@
 def NULL_not_found(object: any) -> int:
     if object is None:
         print("Nothing: " + str(object) + " " + str(type(object)))
-    elif isinstance(type(object), float):
+    elif isinstance(object, float):
         print("Cheese: " + str(object) + " " + str(type(object)))
-    elif isinstance(type(object), int):
+    elif isinstance(object, int):
         print("Zero: " + str(object) + " " + str(type(object)))
-    elif isinstance(type(object), str) and len(object) == 0:
+    elif isinstance(object, str) and len(object) == 0:
         print("Empty: " + str(object) + " " + str(type(object)))
-    elif isinstance(type(object), bool):
+    elif isinstance(object, bool):
         print("Fake: " + str(object) + " " + str(type(object)))
     else:
         print("Type not found")

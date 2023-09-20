@@ -3,15 +3,15 @@
 # - this is to indicate that the param can accept any type of object
 
 def all_thing_is_obj(object: any) -> int:
-    if isinstance(type(object), list):
+    if isinstance(object, list):
         print("List : " + str(type(object)))
-    elif isinstance(type(object), tuple):
+    elif isinstance(object, tuple):
         print("Tuple : " + str(type(object)))
-    elif isinstance(type(object), set):
+    elif isinstance(object, set):
         print("Set : " + str(type(object)))
-    elif isinstance(type(object), dict):
+    elif isinstance(object, dict):
         print("Dict : " + str(type(object)))
-    elif isinstance(type(object), str):
+    elif isinstance(object, str):
         print(str(object) + " is in the kitchen : " + str(type(object)))
     else:
         print("Type not found")
