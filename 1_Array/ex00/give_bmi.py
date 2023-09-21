@@ -17,12 +17,12 @@ def give_bmi(height: list[int | float], weight: list[int | float]) \
 
     if height_arr.ndim != 1 or weight_arr.ndim != 1:
         print("Error: the height and weight arrays both have to be one \
-            dimensional lists")
+dimensional lists")
         return
 
     if height_arr.size != weight_arr.size:
         print("Error: the height and weight arrays need to have the same \
-            number of elements")
+number of elements")
         return
 
     if not np.isin(height_arr.dtype, [int, float]):
@@ -35,7 +35,7 @@ def give_bmi(height: list[int | float], weight: list[int | float]) \
 
     if not (np.all(height_arr > 0) and np.all(weight_arr > 0)):
         print("Error: the height and weight arrays can only include \
-            non-negative values")
+non-negative values")
         return
 
     return list(weight_arr / (height_arr * height_arr))

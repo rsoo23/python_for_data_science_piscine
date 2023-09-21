@@ -13,8 +13,7 @@ def ft_load(path: str) -> list:
         image = Image.open(path)
         image_arr = np.array(image)
         print("The shape of the image is: " + str(image_arr.shape))
-        image_rgb_val_arr = np.asarray(image)
-        return image_rgb_val_arr
+        return image_arr
     except AssertionError as msg:
         print("AssertionError: " + str(msg))
     except FileNotFoundError:

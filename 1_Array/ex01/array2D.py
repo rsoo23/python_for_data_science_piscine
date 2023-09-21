@@ -10,11 +10,11 @@ def slice_me(family: list, start: int, end: int) -> list:
     '''
     try:
         assert isinstance(family, list), "the family array has to be a \
-            2D array"
+2D array"
         family_arr = np.array(family)
         assert family_arr.ndim == 2, "the family array has to be a 2D array"
         assert isinstance(start, int) and isinstance(end, int), "the start \
-            and end has to be integers"
+and end has to be integers"
         print("My shape is: " + str(family_arr.shape))
         family_arr = family_arr[start:end]
         print("My new shape is: " + str(family_arr.shape))
@@ -23,4 +23,4 @@ def slice_me(family: list, start: int, end: int) -> list:
         print("AssertionError: " + str(msg))
     except ValueError:
         print("ValueError: the family array should only include 1D arrays \
-            of the same shape")
+of the same shape")

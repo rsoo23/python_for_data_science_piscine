@@ -3,47 +3,56 @@ from load_image import ft_load
 from PIL import Image
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy import ndimage
 
 
-def zoom(image_arr: list, scale: float):
-    x_offset_left = int((image_arr.shape[0] * (1 - scale)) / 2)
-    y_offset_left = int((image_arr.shape[1] * (1 - scale)) / 2)
-    x_offset_right = int(image_arr.shape[0] - x_offset_left)
-    y_offset_right = int(image_arr.shape[1] - y_offset_left)
-    sliced_region = image_arr[x_offset_left:x_offset_right, \
-        			y_offset_left:y_offset_right]
+def square_slice(image_arr: list):
+    '''
+    takes in the path of the image
+        - scales it by a factor of "scale" with the middle of the image as
+          reference
+        - applies greyscale to the image
+    '''
+    x_l_offset = int((image_arr.shape[0] * 0.5) / 2)
+    x_r_offset = int(image_arr.shape[0] - x_l_offset)
+    sliced_region = image_arr[x_l_offset:x_r_offset, x_l_offset:x_r_offset]
 
-    greyscale_image_arr = np.dot(sliced_region[...,:3], [0.2989, 0.5870, 0.1140])
+    gs_image_arr = \
+        np.dot(sliced_region[..., :3], [0.2989, 0.5870, 0.1140])
+    # adding a third axis to greyscale_image_arr
+    gs_image_arr_new_axis = gs_image_arr[:, :, np.newaxis]
 
-    temp_list = list(sliced_region.shape)
-    temp_list[2] = 1
+    print("The shape of the image is: " +
+          str(gs_image_arr_new_axis.shape) + " or "
+          + str(gs_image_arr.shape))
 
-    print("The shape of the image is: " + str(tuple(temp_list)) + \
-        " or " + str(sliced_region.shape[0:2]))
+    print(np.round(gs_image_arr_new_axis).astype(int))
 
-    greyscale_val_arr = \
-        np.round(greyscale_image_arr[:, :, np.newaxis]).astype(int)
-    print(greyscale_val_arr)
-
-    return greyscale_image_arr, greyscale_val_arr, sliced_region.shape[0:2]
+    return gs_image_arr
 
 
 def rotate(path: str, rotation: int):
     try:
         assert isinstance(path, str), "The file name has to be a string"
         assert isinstance(rotation, int), "The rotation has to be an integer"
+        assert rotation == 90, "The rotation only can be 90 degrees"
         image = Image.open(path)
         image_arr = np.array(image)
 
-        greyscale_image_arr, greyscale_val_arr, image_shape = zoom(image_arr, 0.5)
+        gs_sq_image_arr = square_slice(image_arr)
 
-        print("New shape after Transpose: " + str(image_shape[::-1]))
-        print(np.squeeze(greyscale_val_arr));
+        gs_sq_image_arr = np.squeeze(gs_sq_image_arr)
+        print(gs_sq_image_arr.shape)
 
-        rotated_image = ndimage.rotate(greyscale_image_arr, rotation)
+        rotated_image_arr = \
+            np.zeros((len(gs_sq_image_arr), len(gs_sq_image_arr)))
+        for i in range(len(gs_sq_image_arr)):
+            for j in range(len(gs_sq_image_arr[0])):
+                rotated_image_arr[j][i] = gs_sq_image_arr[i][j]
 
-        plt.imshow(Image.fromarray(rotated_image))
+        print("New shape after Transpose: " + str(rotated_image_arr.shape))
+        print(np.round(rotated_image_arr).astype(int))
+
+        plt.imshow(Image.fromarray(rotated_image_arr))
         plt.show()
 
     except AssertionError as msg:
@@ -63,23 +72,17 @@ def main():
 
     print("Invalid rotation test:")
     rotate("animal.jpeg", "dd")
+    rotate("animal.jpeg", 30)
+    rotate("animal.jpeg", 60)
     print()
 
     print("Valid file test:")
     ft_load("animal.jpeg")
-    # rotate("animal.jpeg", 30)
-    # rotate("animal.jpeg", 60)
     rotate("animal.jpeg", 90)
+    # rotate("animal.jpeg", 180)
+    # rotate("animal.jpeg", 270)
     print()
 
 
 if __name__ == "__main__":
     main()
-
-# [[146 168 177 ...  88  89 104]
-#  [142 148 145 ... 102  98 101]
-#  [141 131 122 ... 100 109 117]
-#  ...
-#  [  8  15   2 ... 119 113 109]
-#  [ 11  17   2 ... 114 111 109]
-#  [ 14  18   2 ... 109 116 121]]
