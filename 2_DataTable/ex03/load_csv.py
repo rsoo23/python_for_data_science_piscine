@@ -14,4 +14,3 @@ def load(path: str) -> pd.DataFrame:
         print("AssertionError: " + str(msg))
     except FileNotFoundError:
         print("Error: file not found")
-    return None
