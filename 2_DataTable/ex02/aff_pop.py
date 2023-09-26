@@ -1,8 +1,8 @@
 
-import pandas as pd
 import matplotlib.pyplot as plt
 from load_csv import load
 import numpy as np
+
 
 def adjust_pop(pop):
     '''takes in a population, converts the format to millions(M)'''
@@ -23,7 +23,8 @@ def main():
 
         years = dataframe.columns[1:-50]
 
-        countries = ['Malaysia', 'Germany', 'Singapore', 'India', 'Indonesia', 'China']
+        countries = ['Malaysia', 'Germany', 'Singapore',
+                     'India', 'Indonesia', 'China']
 
         pop = [dataframe[dataframe['country'] == c] for c in countries]
         adjusted_pop = [p.iloc[0, 1:-50].apply(adjust_pop) for p in pop]
@@ -36,7 +37,7 @@ def main():
             y_tick_step = 20
 
         for adj_p, c in zip(adjusted_pop, countries):
-            plt.plot(years, adj_p, label = c)
+            plt.plot(years, adj_p, label=c)
         y_ticks = np.arange(0, max_pop + 20, y_tick_step)
         y_labels = [f'{int(y)}M' for y in y_ticks]
         plt.yticks(y_ticks, y_labels)
@@ -50,6 +51,7 @@ def main():
         pass
     except IndexError:
         print("IndexError: country not found")
+
 
 if __name__ == "__main__":
     main()
