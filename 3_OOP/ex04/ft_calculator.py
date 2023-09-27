@@ -1,7 +1,7 @@
 
 class calculator:
     '''calculator class'''
-    @classmethod
+    @staticmethod
     def dotproduct(V1: list[float], V2: list[float]) -> None:
         '''dot product between vectors'''
         total = 0.0
@@ -10,13 +10,13 @@ class calculator:
             total += n
         print("Dot product is: " + str(total))
 
-    @classmethod
+    @staticmethod
     def add_vec(V1: list[float], V2: list[float]) -> None:
         '''addition between vectors'''
         print("Add Vector is: " +
               str([float(n1 + n2) for n1, n2 in zip(V1, V2)]))
 
-    @classmethod
+    @staticmethod
     def sous_vec(V1: list[float], V2: list[float]) -> None:
         '''subtraction between vectors'''
         print("Sous Vector is: " +

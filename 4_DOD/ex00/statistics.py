@@ -25,11 +25,23 @@ def ft_median(args: [float | int]):
 
     if length % 2 == 0:
         return \
-            (sorted_list[int(length / 2 - 1)] +
-             sorted_list[int(length / 2)]) / 2
-    else:
-        return sorted_list[int((length + 1) / 2 - 1)]
+            (sorted_list[int(length * 0.5 - 1)] +
+             sorted_list[int(length * 0.5)]) * 0.5
+    return sorted_list[int((length + 1) * 0.5 - 1)]
 
+
+# def ft_quartile(args: [float | int]):
+#     '''calculates the quartile (25% and 75%)'''
+#     sorted_list = sorted(args)
+#     length = len(args)
+
+#     if length == 0:
+#         return
+#     if length >= 1 and length <= 3:
+#         return [float(sorted_list[0]),
+#                 float(sorted_list[length - 1])]
+#     return [float(ft_median(sorted_list[:(length // 2)])),
+#             float(ft_median(sorted_list[(length // 2):]))]
 
 def ft_quartile(args: [float | int]):
     '''calculates the quartile (25% and 75%)'''
@@ -38,23 +50,8 @@ def ft_quartile(args: [float | int]):
 
     if length == 0:
         return
-    elif length == 1:
-        return [float(sorted_list[0]), float(sorted_list[0])]
-    elif length == 2:
-        return [float(sorted_list[0]), float(sorted_list[1])]
-    elif length == 3:
-        return [float(sorted_list[0]), float(sorted_list[2])]
-    elif length == 4:
-        return [float((sorted_list[0] + sorted_list[1]) / 2),
-                float((sorted_list[2] + sorted_list[3]) / 2)]
-    elif length % 2 == 0:
-        return [float(sorted_list[int(length / 4)]),
-                float(sorted_list[int(3 * length / 4)])]
-    else:
-        return [float((sorted_list[int(length / 4 - 1)] +
-                      sorted_list[int(length / 4)]) / 2),
-                float((sorted_list[int(3 * length / 4)] +
-                      sorted_list[int(3 * length / 4 + 1)]) / 2)]
+    return [float(sorted_list[int(length * 0.25)]),
+            float(sorted_list[int(length * 3 * 0.25)])]
 
 
 def ft_var(args: [float | int]):
@@ -95,3 +92,10 @@ def ft_statistics(*args: [float | int], **kwargs: Any) -> None:
             print("ERROR")
         else:
             print(str(value[1]) + " : " + str(res))
+
+# 1: 0 0
+# 2: 0 1
+# 3: 0 2
+# 4: 0+1 2+3
+# 5: 0+1 3+4
+# 6: 1 4

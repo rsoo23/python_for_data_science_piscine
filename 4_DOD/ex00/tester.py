@@ -10,11 +10,11 @@ ft_statistics(5, 75, 450, 18, 597, 27474, 48575,
 print("-----")
 ft_statistics(toto="mean", tutu="median", tata="quartile")
 
-# ft_statistics(1, 2, 3, t="mean")
-# ft_statistics(1, 2, 3, t="median")
-# ft_statistics(1, 2, 3, t="quartile")
-# ft_statistics(1, 2, 3, t="std")
-# ft_statistics(1, 2, 3, t="var")
+ft_statistics(1, 2, 3, t="mean")
+ft_statistics(1, 2, 3, t="median")
+ft_statistics(1, 2, 3, t="quartile")
+ft_statistics(1, 2, 3, t="std")
+ft_statistics(1, 2, 3, t="var")
 
 # mean : 95.6
 # median : 42
@@ -28,5 +28,10 @@ ft_statistics(toto="mean", tutu="median", tata="quartile")
 # ERROR
 # ERROR
 
-ft_statistics(4, 7, 9, 12, 20, toto="mean", tutu="median", tata="quartile")
+# ft_statistics(0, tata="quartile")
+# ft_statistics(0, 1, tata="quartile")
+# ft_statistics(0, 1, 2, tata="quartile")
+# ft_statistics(0, 1, 2, 3, tata="quartile")
+# ft_statistics(0, 1, 2, 3, 4, tata="quartile")
+# ft_statistics(0, 1, 2, 3, 4, 5, tata="quartile")
 # ft_statistics(1, 42, 11, 64, toto="quartile")

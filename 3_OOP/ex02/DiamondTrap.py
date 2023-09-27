@@ -6,8 +6,7 @@ class King(Baratheon, Lannister):
     '''King class'''
     def __init__(self, first_name, is_alive=True):
         '''King class constructor'''
-        self.first_name = first_name
-        self.is_alive = is_alive
+        super().__init__(first_name, is_alive)
 
     def set_eyes(self, new_eyes):
         '''Setter for eyes'''

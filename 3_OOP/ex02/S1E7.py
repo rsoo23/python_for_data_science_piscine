@@ -23,7 +23,7 @@ class Baratheon(Character):
         '''Baratheon class constructor'''
         self.first_name = first_name
         self.is_alive = is_alive
-        self.family_name = self.__class__.__name__
+        self.family_name = 'Baratheon'
         self.eyes = 'brown'
         self.hairs = 'dark'
 
@@ -48,7 +48,7 @@ class Lannister(Character):
         '''Lannister class constructor'''
         self.first_name = first_name
         self.is_alive = is_alive
-        self.family_name = self.__class__.__name__
+        self.family_name = 'Lannister'
         self.eyes = 'blue'
         self.hairs = 'light'
 

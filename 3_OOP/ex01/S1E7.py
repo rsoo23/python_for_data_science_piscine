@@ -66,7 +66,7 @@ class Lannister(Character):
         '''The person dies'''
         self.is_alive = False
 
-    @staticmethod
+    @classmethod
     def create_lannister(cls, first_name, is_alive=True):
         '''Creates a Lannister class using a method'''
         return cls(first_name, is_alive)

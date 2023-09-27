@@ -1,5 +1,4 @@
 
-from functools import wraps
 from typing import Any
 
 # wrappers (aka decorators)
@@ -13,7 +12,6 @@ def callLimit(limit: int):
 
     def callLimiter(function):
         '''call Limiter'''
-        @wraps(function)
         def limit_function(*args: Any, **kwds: Any):
             '''limit_function'''
             nonlocal count
