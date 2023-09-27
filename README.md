@@ -26,6 +26,8 @@ Learnt:
 - Pillow library: image loading, image manipulation (color, size, rotation...)
 - how changing the RGB values of pixels gives different image effects (inverted, greyscale...)
 ```
+![image](https://github.com/rsoo23/python_for_data_science_piscine/assets/81731553/77a7b735-64f0-4a8b-bda9-f5a5cd5156c7)
+
 
 3. Module 2: Data Table
 ```
@@ -35,6 +37,8 @@ Learnt:
 - basic Matplotlib: graph plotting functions
 - graph plotting: log scale, line graphs, scatter plots
 ```
+![image](https://github.com/rsoo23/python_for_data_science_piscine/assets/81731553/69171f04-295f-463d-9b41-9b9ca8203bd3)
+
 
 4. Module 3: OOP (Object oriented programming)
 ```
